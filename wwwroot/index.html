@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="/cdn/libs/css/custom.css">
+    <link rel="stylesheet" href="cdn/style/custom.css">
     <style>
       input {
         text-align: center;
@@ -34,24 +34,30 @@
     <div id="registration" class="container">
       
       <div id="stepper" class="row">
-        <img src="imgs/step-1.png" />
+        <div class="col-xs-12">
+          <img src="imgs/step-1.png" />
+        </div>
       </div>
 
-      <div id="step1">
-          <input type=text placeholder="First Name" /><br />
-          <input type=text placeholder="Last Name" /><br />
-          <input type=text placeholder="Email" /><br />
-          <input type=text placeholder="Mobile Number" /><br />
-          <input type=text placeholder="Address One" /><br />
-          <input type=text placeholder="Address Two" /><br />
-          <input type=text placeholder="City" /><br />
-          <input type=text placeholder="State" /><br />
-          <input type=text placeholder="Zip" />
+      <div id="step1" class="row">
+          <div class="col-xs-12">
+            <input type=text placeholder="First Name" /><br />
+            <input type=text placeholder="Last Name" /><br />
+            <input type=text placeholder="Email" /><br />
+            <input type=text placeholder="Mobile Number" /><br />
+            <input type=text placeholder="Address One" /><br />
+            <input type=text placeholder="Address Two" /><br />
+            <input type=text placeholder="City" /><br />
+            <input type=text placeholder="State" /><br />
+            <input type=text placeholder="Zip" />
+          </div>
       </div>
       
 
-      <div style="Width:100%; text-align: center; margin-top:16px;">
-        <button class="btn btn-sm btn-primary btn-orange">NEXT</button>
+      <div style="text-align: center; margin-top:16px;" class="row">
+          <div class="col-xs-12">
+            <button class="btn btn-sm btn-primary btn-orange">NEXT</button>
+          </div>
       </div>
 
     </div>

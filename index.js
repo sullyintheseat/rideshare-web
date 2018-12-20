@@ -79,7 +79,7 @@ app.use(express.static('app', options));
 
 app.use('/', express.static(__dirname + '/wwwroot/', options) );
 
-app.use('/cdn', express.static(__dirname + '/cdn/') );
+app.use('/cdn', express.static(__dirname + '/cdn') );
 
 
 const PORT = process.env.PORT || aport;
