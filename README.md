@@ -12,3 +12,6 @@ npm install
 then
 
 npm run nodemon
+
+Work from directory wwwroot.
+
