@@ -23,25 +23,33 @@
         border-bottom: 1px solid rgb(230, 145, 56);
       }
       #stepper { text-align: center; margin-top:16px; margin-bottom: 8px;}
+      .btn-orange { background-color:  rgb(230, 145, 56); border-color: #38454b;}
     </style>
   </head>
   <body>
     <div id="registration">
+      
       <div id="stepper">
         <img src="imgs/step-1.png" />
       </div>
-      <input type=text placeholder="First Name" /><br />
-      <input type=text placeholder="Last Name" /><br />
-      <input type=text placeholder="Email" /><br />
-      <input type=text placeholder="Mobile Number" /><br />
-      <input type=text placeholder="Address One" /><br />
-      <input type=text placeholder="Address Two" /><br />
-      <input type=text placeholder="City" /><br />
-      <input type=text placeholder="State" /><br />
-      <input type=text placeholder="Zip" />
-      <p>
-        <button 
-      </p>
+
+      <div id="step1">
+          <input type=text placeholder="First Name" /><br />
+          <input type=text placeholder="Last Name" /><br />
+          <input type=text placeholder="Email" /><br />
+          <input type=text placeholder="Mobile Number" /><br />
+          <input type=text placeholder="Address One" /><br />
+          <input type=text placeholder="Address Two" /><br />
+          <input type=text placeholder="City" /><br />
+          <input type=text placeholder="State" /><br />
+          <input type=text placeholder="Zip" />
+      </div>
+      
+
+      <div style="Width:100%; text-align: center; margin-top:16px;">
+        <button class="btn btn-sm btn-primary btn-orange">NEXT</button>
+      </div>
+
     </div>
   </body>
 </html>
