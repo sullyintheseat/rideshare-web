@@ -4,9 +4,8 @@
     <style>
       input {
         text-align: center;
-        width:90%;
+        width:100%;
         padding: 0.25em;
-        transform: translateX(10px);
         font-size: 1.2em;
         border-top: none;
         min-height: 2em;
@@ -17,12 +16,16 @@
       }
       input:focus{ 
         outline: none;
-        border-bottom: 1px solid rgb(204, 51, 0);
+        border-bottom: 1px solid rgb(230, 145, 56);
       }
+      #stepper { text-align: center; margin-top:16px; margin-bottom: 8px;}
     </style>
   </head>
   <body>
     <div id="registration">
+      <div id="stepper">
+        <img src="imgs/step-1.png" />
+      </div>
       <input type=text placeholder="First Name" /><br />
       <input type=text placeholder="Last Name" /><br />
       <input type=text placeholder="Email" /><br />
