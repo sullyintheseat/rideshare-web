@@ -77,7 +77,7 @@ var options = {
 app.use(express.static('app', options));
 
 
-app.use('/admin', express.static(__dirname + '/admin/', options) );
+app.use('/', express.static(__dirname + '/wwwroot/', options) );
 
 app.use('/cdn', express.static(__dirname + '/cdn/') );
 
