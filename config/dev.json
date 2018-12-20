@@ -1,0 +1,4 @@
+{
+    "MongoDBURI": "mongodb://ds161162.mlab.com:61162/heysulli",
+    "AD_SERVER": "http://localhost:3000"
+}
