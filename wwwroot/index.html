@@ -1,9 +1,12 @@
 <html>
   <head>
     <title>Beta Signup</title>
+    <script src="/cdn/js/libs/handlebars-v1.3.0.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/cdn/js/webcalls.js"></script>
+    
     <link rel="stylesheet" href="cdn/style/custom.css">
     <style>
 
@@ -60,8 +63,8 @@
           <h3 style="text-align: center;">JOIN OUR NETWORK</h3>
           <p>Please fill out the following information</p>
 
-          <input type=text placeholder="Name" /><br />
-          <input type=text placeholder="Email" /><br />
+          <input type=text placeholder="Name" id="txtname" /><br />
+          <input type=text placeholder="Email" id="txtemail" /><br />
           
           <p><br/></p>
 
@@ -106,7 +109,7 @@
 
           <p>Average rides per week:</p>
           
-          <select>
+          <select id="ridesperweek">
             <option>10-20</option>
             <option>20-30</option>
             <option>30-40</option>
@@ -124,11 +127,84 @@
 
       <div class="row">
           <div class="col-xs-12 centered">
-            <button class="btn btn-sm btn-primary btn-orange">NEXT</button>
+            <button class="btn btn-sm btn-primary btn-orange" onclick="submitForm();">NEXT</button>
           </div>
       </div>
 
     </div>
   </body>
-  
+  <script type="text/javascript">
+    $(document).ready(function(e) { init(); });
+    
+    let driver_data = undefined, 
+        service_data = undefined, 
+        frequented_data = undefined,
+        hoursperweek_data = undefined,
+        name = undefined,
+        email = undefined,
+        isUber = false,
+        isLyft = false,
+        isBoth = false;
+
+    init = () => {
+      $("input[type='radio']").click(function(){
+        let driver = $("input[name='dfwDriver']:checked").val();
+        let service = $("input[name='driverService']:checked").val();
+        let frequented = $("input[name='cityFrequented']:checked").val();
+        if(driver){ driver_data = driver; }
+        if(service){ service_data = service; }
+        if(frequented){ frequented_data = frequented; }
+      });
+    };
+
+    submitForm = () => {
+      let valid = true;
+      let data = {};
+      name = $("#txtname").val();
+      email = $("#txtemail").val();
+      hoursperweek_data = $("#ridesperweek").val();
+
+      if(
+          driver_data === undefined || 
+          service_data === undefined || 
+          frequented_data === undefined || 
+          hoursperweek_data === undefined ||
+          name === undefined ||
+          email === undefined){
+          valid = false;
+      }
+
+      let validmail = checkField('#txtemail', 'email');
+
+      switch(service_data){
+        case "uber":
+          isUber = true;
+          isLyft = false;
+          break;
+        case "lyft":
+          isLyft = true;
+          isUber = false;
+          break;
+        case "both":
+          isUber = true;
+          isLyft = true;
+          break;       
+      }
+      if(valid && validmail){
+        data.name = name;
+        data.email = email;
+        data.inDfw = driver_data;
+        data.isUber = isUber;
+        data.isLyft = isLyft;
+        data.cityMostDriven = frequented_data;
+        data.ridesPerWeek = hoursperweek_data;
+
+        console.log(data);
+      }
+     
+      
+    }
+
+</script>
+
 </html>
