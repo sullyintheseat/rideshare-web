@@ -9,14 +9,14 @@
 
       body {
         background-color: #f9f9f9;
-        font-size: 1.2em;
+  
       }
 
       input {
         text-align: left;
         width:100%;
         padding: 0.25em;
-        font-size: 1.2em;
+      
         border-top: none;
         min-height: 2em;
         border-left: none;
@@ -50,20 +50,27 @@
     </div>
 
     <div id="registration" class="container">
-      
-     
+           
       <div id="step1" class="row">
-          <div class="col-xs-12">
-            <input type=text placeholder="First Name" /><br />
-            <input type=text placeholder="Last Name" /><br />
-            <input type=text placeholder="Email" /><br />
-            <input type=text placeholder="Mobile Number" /><br />
-            <p>Are you a rideshare driver in DFW</p>
-            <input type=text placeholder="State" /><br />
-            <input type=text placeholder="Zip" />
-          </div>
+
+        <div class="col-xs-10 col-xs-offset-1">
+          <h3 style="text-align: center;">JOIN OUR RIDESHARE NETWORK</h3>
+          </br/><br />
+          <p>Please fill out the following information</p>
+
+          <input type=text placeholder="First Name" /><br />
+          <input type=text placeholder="Last Name" /><br />
+          <input type=text placeholder="Email" /><br />
+          <input type=text placeholder="Mobile Number" /><br /><br />
+
+          <p>Are you a rideshare driver in DFW</p>
+          <input type="radio" name="dfwDriver" value="true">Yes</input>
+          <input type="radio" name="dfwDriver" value="false">No</input>
+          <input type=text placeholder="State" /><br />
+          <input type=text placeholder="Zip" />
+        </div>
+
       </div>
-      
 
       <div class="row">
           <div class="col-xs-12 centered">
