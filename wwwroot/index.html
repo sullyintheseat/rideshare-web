@@ -27,13 +27,12 @@
         border-bottom: 1px solid rgb(230, 145, 56);
       }
 
-      input[type="radio"] { color: #939393; font-weight:300}
-
       #registration {
         margin-top: 32px;
         color: #939393;
       }
-      
+      .radio-inline label{ color:#939393; margin-right:32px; font-weight:300; }
+      .radio-inline input  {margin-right:160px;}
       .btn-orange { background-color:  rgb(230, 145, 56); border-color: #38454b;}
     </style>
   </head>
@@ -60,22 +59,50 @@
           </br/><br />
           <p>Please fill out the following information</p>
 
-          <input type=text placeholder="First Name" /><br />
-          <input type=text placeholder="Last Name" /><br />
+          <input type=text placeholder="Name" /><br />
           <input type=text placeholder="Email" /><br />
-          <input type=text placeholder="Mobile Number" /><br /><br />
+          
+          <p><br/></p>
 
           <p>Are you a rideshare driver in DFW</p>
-          <label class="radio-inline">
-              <input type="radio" name="dfwDriver" value="true">Yes</input>
-          </label>
+          <div class="radio-inline">
+              <input type="radio" name="dfwDriver" value="true">
+                <label>Yes</label>
+              </input>
+              <input type="radio" name="dfwDriver" value="false">
+                <label>Yes</label>
+              </input>
+              <p><br/></p>
+          </div>
           
-          <label class="radio-inline">
-              <input type="radio" name="dfwDriver" value="false">No</input>
-          </label>
+          <p>What rideshare service do you currently drive for?</p>
+          <div class="radio-inline">
+              <input type="radio" name="driverService" value="uber">
+                <label>Uber</label>
+              </input>
+              <input type="radio" name="driverService" value="lyft">
+                <label>Lyft</label>
+              </input>
+              <input type="radio" name="driverService" value="both">
+                <label>Both</label>
+              </input>
+              <p><br/></p>
+          </div>
+
+          <p>Which city do you drive in most?</p>
+          <div class="radio-inline">
+              <input type="radio" name="cityFrequented" value="dallas">
+                <label>Dallas</label>
+              </input>
+              <input type="radio" name="cityFrequented" value="fortworth">
+                <label>Fort Worth</label>
+              </input>
+              <input type="radio" name="cityFrequented" value="arlington">
+                <label>Arlington</label>
+              </input>
+              <p><br/></p>
+          </div>
           
-          <input type=text placeholder="State" /><br />
-          <input type=text placeholder="Zip" />
         </div>
 
       </div>
