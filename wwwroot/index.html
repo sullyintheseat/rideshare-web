@@ -9,14 +9,12 @@
 
       body {
         background-color: #f9f9f9;
-  
       }
 
       input {
         text-align: left;
         width:100%;
-        padding: 0.25em;
-      
+        padding: 0.25em;      
         border-top: none;
         min-height: 2em;
         border-left: none;
@@ -29,9 +27,13 @@
         border-bottom: 1px solid rgb(230, 145, 56);
       }
 
+      input[type="radio"] { color: #939393; font-weight:300}
+
       #registration {
         margin-top: 32px;
+        color: #939393;
       }
+      
       .btn-orange { background-color:  rgb(230, 145, 56); border-color: #38454b;}
     </style>
   </head>
@@ -64,8 +66,14 @@
           <input type=text placeholder="Mobile Number" /><br /><br />
 
           <p>Are you a rideshare driver in DFW</p>
-          <input type="radio" name="dfwDriver" value="true">Yes</input>
-          <input type="radio" name="dfwDriver" value="false">No</input>
+          <label class="radio-inline">
+              <input type="radio" name="dfwDriver" value="true">Yes</input>
+          </label>
+          
+          <label class="radio-inline">
+              <input type="radio" name="dfwDriver" value="false">No</input>
+          </label>
+          
           <input type=text placeholder="State" /><br />
           <input type=text placeholder="Zip" />
         </div>
