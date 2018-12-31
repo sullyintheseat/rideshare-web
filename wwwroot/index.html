@@ -76,22 +76,28 @@
 
           <p>Are you a rideshare driver in DFW</p>
           <div>
-              <input type="radio" name="dfwDriver" value="true">Yes</input>
-              <input type="radio" name="dfwDriver" value="false">No</input>
+              <select id="dfwDriver">
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+              </select>
           </div>
           
           <p>What rideshare do you currently drive for?</p>
           <div">
-              <input type="radio" name="driverService" value="uber">Uber</input>
-              <input type="radio" name="driverService" value="lyft">Lyft</input>
-              <input type="radio" name="driverService" value="both">Both</input>
+              <select id="driverService">
+                <option value="uber">Uber</option>
+                <option value="lyft">Lyft</option>
+                <option value="both">Both</option>
+            </select>
           </div>
 
           <p>Which city do you drive in most?</p>
           <div>
-              <input type="radio" name="cityFrequented" value="dallas">>Dallas</input>
-              <input type="radio" name="cityFrequented" value="fortworth">Fort Worth</input>
-              <input type="radio" name="cityFrequented" value="arlington">Arlington</input>
+            <select id="cityFrequented">
+              <option value="dallas">Dallas</option>
+              <option value="fortworth">Fort Worth</option>
+              <option value="arlington">Arlington</option>
+            </select>
           </div>
           <br />
           <p>Average rides per week:</p>
@@ -145,14 +151,7 @@
         isBoth = false;
 
     init = () => {
-      $("input[type='radio']").click(function(){
-        let driver = $("input[name='dfwDriver']:checked").val();
-        let service = $("input[name='driverService']:checked").val();
-        let frequented = $("input[name='cityFrequented']:checked").val();
-        if(driver){ driver_data = driver; }
-        if(service){ service_data = service; }
-        if(frequented){ frequented_data = frequented; }
-      });
+     
     };
 
     submitForm = () => {
@@ -160,8 +159,10 @@
       let data = {};
       name = $("#txtname").val();
       email = $("#txtemail").val();
+      frequented_data = $("#cityFrequented").val();
       hoursperweek_data = $("#ridesperweek").val();
-
+      driver_data = $("#dfwDriver").val();
+      service_date = $("#driverService").val();
       if(
           driver_data === undefined || 
           service_data === undefined || 
@@ -196,9 +197,7 @@
         data.isLyft = isLyft;
         data.cityMostDriven = frequented_data;
         data.ridesPerWeek = hoursperweek_data;
-        
-        console.log(data);
-
+      
         postData(data, 'https://rideshare.digitalseat.io/signup', (success, mdata) => {
           if(success) {
             showPanel('signupSuccess');
@@ -206,6 +205,7 @@
             alert('There was an error processing this request.');
           }
         });
+        
       }
      
       
