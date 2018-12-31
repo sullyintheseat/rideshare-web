@@ -45,6 +45,7 @@ function postData(mdata, purl, callback) {
         processData: false,
         context: this,
         success: function(data) {
+            console.log(data)
             if(data.success){
                 callback(true, data);
             } else {

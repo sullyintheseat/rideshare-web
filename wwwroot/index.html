@@ -36,6 +36,12 @@
         color: #393939;
         text-align: center;
       }
+
+      #signupSuccess {
+        margin-top: 32px;
+        color: #393939;
+        text-align: center;
+      }
       .radio-inline label{ color:#939393; margin-right:32px; font-weight:300; }
       .radio-inline input  {margin-right:160px;}
       .btn-orange { background-color:  rgb(230, 145, 56); border-color: #393939;}
@@ -55,7 +61,7 @@
       </div> 
     </div>
 
-    <div id="registration" class="container">
+    <div id="registration" class="container displayOn">
            
       <div id="step1" class="row">
 
@@ -74,7 +80,7 @@
                 <label>Yes</label>
               </input>
               <input type="radio" name="dfwDriver" value="false">
-                <label>Yes</label>
+                <label>No</label>
               </input>
               <p><br/></p>
           </div>
@@ -132,10 +138,20 @@
       </div>
 
     </div>
+
+    <div id="signupSuccess" class="container displayOff">
+      <div class="tow">
+        <div class="col-xs-10 col-xs-offset-1">
+          <h3 style="text-align: center;">THANKS FOR SIGNING UP</h3>
+          <p>Thanks for signing up with the Digital Seat advertising program. We will get back to you soon.</p>
+        </div>
+       </div>
+    </div>
+
   </body>
   <script type="text/javascript">
     $(document).ready(function(e) { init(); });
-    
+    let panels = ['registration', 'signupSucess'];
     let driver_data = undefined, 
         service_data = undefined, 
         frequented_data = undefined,
@@ -198,8 +214,16 @@
         data.isLyft = isLyft;
         data.cityMostDriven = frequented_data;
         data.ridesPerWeek = hoursperweek_data;
-
+        
         console.log(data);
+
+        postData(data, 'https://rideshare.digitalseat.io/signup', (success, mdata) => {
+          if(success) {
+            showPanel('signupSuccess');
+          } else {
+            alert('There was an error processing this request.');
+          }
+        });
       }
      
       
