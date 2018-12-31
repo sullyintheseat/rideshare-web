@@ -112,17 +112,17 @@
 
           <p><br/></p>
 
-          
+          <div class="row">
+              <div class="col-xs-12 centered">
+                <button class="btn btn-sm btn-primary btn-orange" onclick="submitForm();">NEXT</button>
+              </div>
+          </div>
           
         </div>
 
       </div>
 
-      <div class="row">
-          <div class="col-xs-12 centered">
-            <button class="btn btn-sm btn-primary btn-orange" onclick="submitForm();">NEXT</button>
-          </div>
-      </div>
+      
 
     </div>
 
@@ -162,7 +162,7 @@
       frequented_data = $("#cityFrequented").val();
       hoursperweek_data = $("#ridesperweek").val();
       driver_data = $("#dfwDriver").val();
-      service_date = $("#driverService").val();
+      service_data = $("#driverService").val();
       if(
           driver_data === undefined || 
           service_data === undefined || 
@@ -189,6 +189,8 @@
           isLyft = true;
           break;       
       }
+      console.log(valid + ' ' +  validmail);
+
       if(valid && validmail){
         data.name = name;
         data.email = email;
@@ -197,7 +199,7 @@
         data.isLyft = isLyft;
         data.cityMostDriven = frequented_data;
         data.ridesPerWeek = hoursperweek_data;
-      
+        console.log(data);
         postData(data, 'https://rideshare.digitalseat.io/signup', (success, mdata) => {
           if(success) {
             showPanel('signupSuccess');
