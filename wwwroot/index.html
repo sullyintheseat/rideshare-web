@@ -42,8 +42,8 @@
         color: #393939;
         text-align: center;
       }
-      .radio-inline label{ color:#939393; margin-right:32px; font-weight:300; }
-      .radio-inline input  {margin-right:160px;}
+      .radio-inline label{ color:#939393; font-weight:300; }
+      
       .btn-orange { background-color:  rgb(230, 145, 56); border-color: #393939;}
     </style>
   </head>
@@ -72,47 +72,28 @@
           <input type=text placeholder="Name" id="txtname" /><br />
           <input type=text placeholder="Email" id="txtemail" /><br />
           
-          <p><br/></p>
+          <br />
 
           <p>Are you a rideshare driver in DFW</p>
-          <div class="radio-inline">
-              <input type="radio" name="dfwDriver" value="true">
-                <label>Yes</label>
-              </input>
-              <input type="radio" name="dfwDriver" value="false">
-                <label>No</label>
-              </input>
-              <p><br/></p>
+          <div>
+              <input type="radio" name="dfwDriver" value="true">Yes</input>
+              <input type="radio" name="dfwDriver" value="false">No</input>
           </div>
           
           <p>What rideshare do you currently drive for?</p>
-          <div class="radio-inline">
-              <input type="radio" name="driverService" value="uber">
-                <label>Uber</label>
-              </input>
-              <input type="radio" name="driverService" value="lyft">
-                <label>Lyft</label>
-              </input>
-              <input type="radio" name="driverService" value="both">
-                <label>Both</label>
-              </input>
-              <p><br/></p>
+          <div">
+              <input type="radio" name="driverService" value="uber">Uber</input>
+              <input type="radio" name="driverService" value="lyft">Lyft</input>
+              <input type="radio" name="driverService" value="both">Both</input>
           </div>
 
           <p>Which city do you drive in most?</p>
-          <div class="radio-inline">
-              <input type="radio" name="cityFrequented" value="dallas">
-                <label>Dallas</label>
-              </input>
-              <input type="radio" name="cityFrequented" value="fortworth">
-                <label>Fort Worth</label>
-              </input>
-              <input type="radio" name="cityFrequented" value="arlington">
-                <label>Arlington</label>
-              </input>
-              <p><br/></p>
+          <div>
+              <input type="radio" name="cityFrequented" value="dallas">>Dallas</input>
+              <input type="radio" name="cityFrequented" value="fortworth">Fort Worth</input>
+              <input type="radio" name="cityFrequented" value="arlington">Arlington</input>
           </div>
-
+          <br />
           <p>Average rides per week:</p>
           
           <select id="ridesperweek">
