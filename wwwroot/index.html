@@ -124,7 +124,7 @@
               <button type="button" class="btn btn-custom" name="dfwDriver">No</button>
             </div>
             
-            
+            <br />
             <p>What rideshare do you currently drive for?</p>
             <div class="buttons">
               <button type="button" class="btn btn-custom" name="rideShare">Uber</button>
@@ -132,11 +132,12 @@
               <button type="button" class="btn btn-custom" name="rideShare">Both</button>
             </div>           
 
+            <br />
             <p>Which city do you drive in most?</p>
             <div class="buttons">
-              <button type="button" class="btn btn-custom" name="dityOfOperation">Arlington</button>
-              <button type="button" class="btn btn-custom" name="dityOfOperation">Dallas</button>
-              <button type="button" class="btn btn-custom" name="dityOfOperation">Fort Worth</button>
+              <button type="button" class="btn btn-custom" name="cityOfOperation">Arlington</button>
+              <button type="button" class="btn btn-custom" name="cityOfOperation">Dallas</button>
+              <button type="button" class="btn btn-custom" name="cityOfOperation">Fort Worth</button>
             </div>
             
             <br />
@@ -193,9 +194,34 @@
 
     init = () => {
       $("button").on("click", function (event) {
-       
-       console.log(event.currentTarget.innerHTML + ' - ' + event.target.name);
-       event.preventDefault();
+        let section = event.target.name;
+        let value = event.currentTarget.innerHTML;
+
+        if(section === "dfwDriver") {
+          driver_data = true;
+        }
+        if(section === "rideShare") {
+          switch(value){
+            case "Uber": 
+              isUber = true;
+              isLyft = false;
+              break;
+            case "Lyft": 
+              isUber = false;
+              isLyft = true;
+              break;
+            case "Both":
+              isUber = true;
+              isLyft = true;
+              break;
+          }
+        }
+        if(section === "cityOfOperation") {
+          frequented_data = value;
+        }
+        if(section === "ridesPerWeek") {
+          hoursperweek_data = value;
+        }
       })
     };
 
@@ -204,13 +230,10 @@
       let data = {};
       name = $("#txtname").val();
       email = $("#txtemail").val();
-      frequented_data = $("#cityFrequented").val();
-      hoursperweek_data = $("#ridesperweek").val();
-      driver_data = $("#dfwDriver").val();
-      service_data = $("#driverService").val();
+     
+     
       if(
           driver_data === undefined || 
-          service_data === undefined || 
           frequented_data === undefined || 
           hoursperweek_data === undefined ||
           name === undefined ||
@@ -218,22 +241,10 @@
           valid = false;
       }
 
+      console.log(driver_data + ' ' + frequented_data + ' ' + hoursperweek_data);
       let validmail = checkField('#txtemail', 'email');
 
-      switch(service_data){
-        case "uber":
-          isUber = true;
-          isLyft = false;
-          break;
-        case "lyft":
-          isLyft = true;
-          isUber = false;
-          break;
-        case "both":
-          isUber = true;
-          isLyft = true;
-          break;       
-      }
+      
       console.log(valid + ' ' +  validmail);
 
       if(valid && validmail){
@@ -254,7 +265,6 @@
         });
         
       }
-     
       
     }
 
