@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+    <script src="/cdn/js/libs//handlebars-v1.3.0.js"></script>
     <script src="/cdn/js/webcalls.js"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="cdn/style/custom.css">
@@ -36,7 +36,7 @@
       #registration {
         margin-top: 32px;
         color: #393939;
-        text-align: center;
+        text-align: left;
       }
 
       #signupSuccess {
@@ -47,6 +47,20 @@
       .radio-inline label{ color:#939393; font-weight:300; }
       
       .btn-orange { background-color:  rgb(230, 145, 56); border-color: #393939;}
+    
+
+      .btn-custom { 
+        border-color: #9a9a9a; 
+        color:#9a9a9a; 
+        display: inline-block;
+        padding: 20px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
     </style>
   </head>
   <body>
@@ -75,92 +89,28 @@
       <div class="container" style="margin-top:8px;">
         <div class="row">
           <div class="col-xs-12 centered">
-            <img src="imgs/dslogo.jpg" alt="Digital Seat" style="width:75%; max-width:480px; padding-bottom:8px;"/>
+            <!--img src="imgs/dslogo.jpg" alt="Digital Seat" style="width:75%; max-width:480px; padding-bottom:8px;"/-->
           </div>
         </div>
       </div> 
     
       <div class="container" style="margin-top:32px;" id="home">
-        <div class="row">
-          
-          <div class="col-md-4">
-            <img src="imgs/home1.jpeg" alt="Digital Seat" width="100%"/>
-            <p><br/></p>
-          </div>
-
-          <div class="col-md-8">
-            <h3>BE ENGAGING. BE RELEVANT. BE MOBILE.</h3>
-            <p>Digital Seat is the first and only rideshare mobile advertising network. We connect advertisers to a captive audience in rideshare vehicles with targeted real-time redeemable value offers and information on up-coming events tied directly to the vehicles area of operation. Through our patent pending engagement platform, we allow brands to provide real-time updates and offers to their target audience without the use of an app.</p>        
-            <h3>Fast Facts:</h3>
-            <p><br/>
-              <ol>
-                <li>15 Million- Number of rideshare trips taken each day</li>
-                <li>64%- Percentage of rideshare passengers with annual income over $75K</li>
-                <li>>82%- Percentage of rideshare passengers between the ages of 16-44</li>
-                <li>75%- Percentage of rideshare trips that end at a point-of-sale</li>
-              </ol>
-            </p>
-          </div>
-        </div>
         
-        <p><br/></p>
-
-        <div class="row">
-
-          <div class="col-md-6">
-              <h3>YOUR MESSAGE. YOUR TARGET MARKET.</h3>
-              <p>Digital Seat was created with brands and agencies in mind. Our platform allows you to spend your advertising dollars in the markets that you want to target on a real-time basis. Want to push free burgers, but only after 9pm on Wednesdays? We got you. Free gameplay, but only to riders in Dallas? Not a problem. Cater your interactive campaign to how and when you see fit.</p>
-          </div>
-
-          <div class="col-md-6">
-            <img src="imgs/home2.jpeg" alt="Digital Seat" width="100%"/>
-            <p><br/></p>
-          </div>
-        </div>
-        
-        <p><br/></p>
-
-        <div class="row">
-          
-          <div class="col-md-4">
-              <img src="imgs/home3.png" alt="Digital Seat" width="100%"/>
-              <p><br/></p>
-          </div>
-
-          <div class="col-md-8">
-              <h3>KNOW YOUR REACH.</h3>
-              <p>Digital Seat offers access to a previously untapped advertising market all while providing real-time results on your campaign. We allow advertisers to view their campaign results within their custom Digital Seat Campaign Portal. Our patent pending platform allows you to see the overall reach of your campaign, including total number of users, number of engagements and number of conversions. Quit wasting money on “phantom clicks” and drive efficiency, effectiveness and ROI for every dollar you spend.</p>
-          </div>
+        <div class="row">  
+          <div class="col-md-8 col-md-offset-3">
+            <h3>Beta Sign Up</h3>
+            <p></p>
+          </div>  
         </div>
 
-      
-
-        <p><br/></p>
-        
-        <div class="row">
-
-          <div class="col-md-6">
-            <h3>YOUR MESSAGE. YOUR TARGET MARKET.</h3>
-            <p>Digital Seat was created with brands and agencies in mind. Our platform allows you to spend your advertising dollars in the markets that you want to target on a real-time basis. Want to push free burgers, but only after 9pm on Wednesdays? We got you. Free gameplay, but only to riders in Dallas? Not a problem. Cater your interactive campaign to how and when you see fit.</p>
-          </div>
-
-          <div class="col-md-6">
-            <img src="imgs/home4.jpeg" alt="Digital Seat" width="100%" style="max-width:566px;"/>
-            <p><br/></p>
-          </div>
-
-        </div>
-        
-        <p><br/></p>
-      
       </div>
 
       <div id="registration" class="container displayOn">
            
         <div id="step1" class="row">
 
-          <div class="col-xs-12 ">
-            <h3 style="text-align: center;">JOIN OUR NETWORK</h3>
+          <div class="col-md-8 col-md-offset-3">
+            <h3>JOIN OUR NETWORK</h3>
             <p>Please fill out the following information</p>
 
             <input type=text placeholder="Name" id="txtname" /><br />
@@ -169,37 +119,35 @@
             <br />
 
             <p>Are you a rideshare driver in DFW</p>
-            <select id="dfwDriver">
-              <option value="true">Yes</option>
-              <option value="false">No</option>
-            </select>
+            <div class="buttons">
+              <button type="button" class="btn btn-custom" name="dfwDriver">Yes</button>
+              <button type="button" class="btn btn-custom" name="dfwDriver">No</button>
+            </div>
             
             
             <p>What rideshare do you currently drive for?</p>
-            <select id="driverService">
-              <option value="uber">Uber</option>
-              <option value="lyft">Lyft</option>
-              <option value="both">Both</option>
-            </select>
-            
+            <div class="buttons">
+              <button type="button" class="btn btn-custom" name="rideShare">Uber</button>
+              <button type="button" class="btn btn-custom" name="rideShare">Lyft</button>
+              <button type="button" class="btn btn-custom" name="rideShare">Both</button>
+            </div>           
 
             <p>Which city do you drive in most?</p>
-            <select id="cityFrequented">
-              <option value="dallas">Dallas</option>
-              <option value="fortworth">Fort Worth</option>
-              <option value="arlington">Arlington</option>
-            </select>
+            <div class="buttons">
+              <button type="button" class="btn btn-custom" name="dityOfOperation">Arlington</button>
+              <button type="button" class="btn btn-custom" name="dityOfOperation">Dallas</button>
+              <button type="button" class="btn btn-custom" name="dityOfOperation">Fort Worth</button>
+            </div>
             
             <br />
             <p>Average rides per week:</p>
-            
-            <select id="ridesperweek">
-              <option>10-20</option>
-              <option>20-30</option>
-              <option>30-40</option>
-              <option>40-50</option>
-              <option>50+</option>
-            </select>
+            <div class="buttons">
+              <button type="button" class="btn btn-custom" name="ridesPerWeek">10-20</button>
+              <button type="button" class="btn btn-custom" name="ridesPerWeek">20-30</button>
+              <button type="button" class="btn btn-custom" name="ridesPerWeek">30-40</button>
+              <button type="button" class="btn btn-custom" name="ridesPerWeek">40-50</button>
+              <button type="button" class="btn btn-custom" name="ridesPerWeek">50+</button>
+            </div>
 
             <p><br/></p>
 
@@ -244,7 +192,11 @@
         isBoth = false;
 
     init = () => {
-     
+      $("button").on("click", function (event) {
+       
+       console.log(event.currentTarget.innerHTML + ' - ' + event.target.name);
+       event.preventDefault();
+      })
     };
 
     submitForm = () => {
