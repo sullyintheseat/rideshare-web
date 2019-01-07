@@ -71,6 +71,19 @@
         margin: 4px 2px;
         cursor: pointer;
       }
+
+      .btn-selected { 
+        border-color: #9a9a9a; 
+        color:#9a9a9a; 
+        display: inline-block;
+        padding: 20px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
     </style>
   </head>
   <body>
@@ -205,6 +218,10 @@
 
     init = () => {
       $("button").on("click", function (event) {
+
+        $('button').removeClass('btn-selected');
+        $(this).addClass('btn-selected');
+
         let section = event.target.name;
         let value = event.currentTarget.innerHTML;
 
