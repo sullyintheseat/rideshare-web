@@ -123,6 +123,7 @@
             <input type=text placeholder="First Name" id="txtFirstName" /><br />
             <input type=text placeholder="Last Name" id="txtLastName" /><br />
             <input type=text placeholder="Email" id="txtemail" /><br />
+            <input type=text placeholder="Referral Code" id="txtcode" /><br />
             
             <br />
 
@@ -199,6 +200,7 @@
         email = undefined,
         isUber = false,
         isLyft = false,
+        referrer = undefined,
         isBoth = false;
 
     init = () => {
@@ -332,7 +334,7 @@
       firstName = $("#txtFirstName").val();
       lastName = $("#txtLastName").val();
       email = $("#txtemail").val();
-     
+      referrer = $("#txtcode").val();
      
       if(
           driver_data === undefined || 
@@ -359,6 +361,7 @@
         data.isLyft = isLyft;
         data.cityMostDriven = frequented_data;
         data.ridesPerWeek = hoursperweek_data;
+        data.referralCode = referrer;
         console.log(data);
         postData(data, 'https://rideshare.digitalseat.io/signup', (success, mdata) => {
           if(success) {
