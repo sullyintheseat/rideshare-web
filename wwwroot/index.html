@@ -18,7 +18,7 @@
       }
 
       input {
-        text-align: center;
+        text-align: left;
         width:100%;
         padding: 0.25em;      
         border-top: none;
@@ -73,7 +73,7 @@
       }
 
       .btn-selected { 
-        background-color:  rgb(100, 100, 200 );
+        background-color:  rgb(230, 145, 56);
         border-color: #9a9a9a; 
         color:#fff; 
         display: inline-block;
@@ -121,7 +121,7 @@
       <div class="container" style="margin-top:32px;" id="home">
         
         <div class="row">  
-          <div class="col-md-8 col-md-offset-3">
+          <div class="col-md-10 col-md-offset-1">
             <h3>Beta Sign Up</h3>
             <p>Welcome to the Digital Seat Ad Share progeam for ride share drivers. We are currently accepting all applications for the program, but will initially launch the beta with 250 drivers in select cities.</p>
             <p></p>
@@ -134,7 +134,7 @@
            
         <div id="step1" class="row">
 
-          <div class="col-md-8 col-md-offset-3">
+          <div class="col-md-10 col-md-offset-1">
             
             <p>Please fill out the following information</p>
 
@@ -145,34 +145,34 @@
 
             <p>Are you a rideshare driver in DFW</p>
             <div class="buttons">
-              <button type="button" class="btn btn-custom" name="dfwDriver">Yes</button>
-              <button type="button" class="btn btn-custom" name="dfwDriver">No</button>
+              <button type="button" class="btn btn-custom" name="dfwDriver" id="btn1">Yes</button>
+              <button type="button" class="btn btn-custom" name="dfwDriver" id="btn2">No</button>
             </div>
             
             <br />
             <p>What rideshare do you currently drive for?</p>
             <div class="buttons">
-              <button type="button" class="btn btn-custom" name="rideShare">Uber</button>
-              <button type="button" class="btn btn-custom" name="rideShare">Lyft</button>
-              <button type="button" class="btn btn-custom" name="rideShare">Both</button>
+              <button type="button" class="btn btn-custom" name="rideShare" id="btn3">Uber</button>
+              <button type="button" class="btn btn-custom" name="rideShare" id="btn4">Lyft</button>
+              <button type="button" class="btn btn-custom" name="rideShare" id="btn5">Both</button>
             </div>           
 
             <br />
             <p>Which city do you drive in most?</p>
             <div class="buttons">
-              <button type="button" class="btn btn-custom" name="cityOfOperation">Arlington</button>
-              <button type="button" class="btn btn-custom" name="cityOfOperation">Dallas</button>
-              <button type="button" class="btn btn-custom" name="cityOfOperation">Fort Worth</button>
+              <button type="button" class="btn btn-custom" name="cityOfOperation" id="btn6">Arlington</button>
+              <button type="button" class="btn btn-custom" name="cityOfOperation" id="btn7">Dallas</button>
+              <button type="button" class="btn btn-custom" name="cityOfOperation" id="btn8">Fort Worth</button>
             </div>
             
             <br />
             <p>Average rides per week:</p>
             <div class="buttons">
-              <button type="button" class="btn btn-custom" name="ridesPerWeek">10-20</button>
-              <button type="button" class="btn btn-custom" name="ridesPerWeek">20-30</button>
-              <button type="button" class="btn btn-custom" name="ridesPerWeek">30-40</button>
-              <button type="button" class="btn btn-custom" name="ridesPerWeek">40-50</button>
-              <button type="button" class="btn btn-custom" name="ridesPerWeek">50+</button>
+              <button type="button" class="btn btn-custom" name="ridesPerWeek" id="btn9">10-20</button>
+              <button type="button" class="btn btn-custom" name="ridesPerWeek" id="btn10">20-30</button>
+              <button type="button" class="btn btn-custom" name="ridesPerWeek" id="btn11">30-40</button>
+              <button type="button" class="btn btn-custom" name="ridesPerWeek" id="btn12">40-50</button>
+              <button type="button" class="btn btn-custom" name="ridesPerWeek" id="btn13">50+</button>
             </div>
 
             <p><br/></p>
@@ -220,35 +220,122 @@
     init = () => {
       $("button").on("click", function (event) {
 
-        $('button').removeClass('btn-selected');
-        $(this).addClass('btn-selected');
-
+        
         let section = event.target.name;
         let value = event.currentTarget.innerHTML;
 
         if(section === "dfwDriver") {
-          driver_data = true;
+          
+          switch(value){
+            case "Yes": 
+              $('#btn1').removeClass('btn-selected');
+              $('#btn2').removeClass('btn-selected');
+              $('#btn1').addClass('btn-selected');
+              driver_data = true;
+              break;
+            case "No": 
+              $('#btn1').removeClass('btn-selected');
+              $('#btn2').removeClass('btn-selected');
+              $('#btn2').addClass('btn-selected');
+              driver_data = false;
+              break;
+          }
         }
         if(section === "rideShare") {
           switch(value){
-            case "Uber": 
+            case "Uber":
+              $('#btn3').removeClass('btn-selected');
+              $('#btn4').removeClass('btn-selected');
+              $('#btn5').removeClass('btn-selected');
+              $('#btn3').addClass('btn-selected');
               isUber = true;
               isLyft = false;
               break;
             case "Lyft": 
+              $('#btn3').removeClass('btn-selected');
+              $('#btn4').removeClass('btn-selected');
+              $('#btn5').removeClass('btn-selected');
+              $('#btn4').addClass('btn-selected');
               isUber = false;
               isLyft = true;
               break;
             case "Both":
+              $('#btn3').removeClass('btn-selected');
+              $('#btn4').removeClass('btn-selected');
+              $('#btn5').removeClass('btn-selected');
+              $('#btn5').addClass('btn-selected');
               isUber = true;
               isLyft = true;
               break;
           }
         }
         if(section === "cityOfOperation") {
+          switch(value) {
+            case "Arlington":
+              $('#btn6').removeClass('btn-selected');
+              $('#btn7').removeClass('btn-selected');
+              $('#btn8').removeClass('btn-selected');
+              $('#btn6').addClass('btn-selected');
+            break;
+            case "Dallas":
+              $('#btn6').removeClass('btn-selected');
+              $('#btn7').removeClass('btn-selected');
+              $('#btn8').removeClass('btn-selected');
+              $('#btn7').addClass('btn-selected');
+            break;
+            case "Fort Worth":
+              $('#btn6').removeClass('btn-selected');
+              $('#btn7').removeClass('btn-selected');
+              $('#btn8').removeClass('btn-selected');
+              $('#btn8').addClass('btn-selected');
+            break;
+          }
           frequented_data = value;
         }
         if(section === "ridesPerWeek") {
+
+          switch(value) {
+            case "10-20":
+              $('#btn9').removeClass('btn-selected');
+              $('#btn10').removeClass('btn-selected');
+              $('#btn11').removeClass('btn-selected');
+              $('#btn12').removeClass('btn-selected');
+              $('#btn13').removeClass('btn-selected');
+              $('#btn9').addClass('btn-selected');
+              break;
+            case "20-30":
+              $('#btn9').removeClass('btn-selected');
+              $('#btn10').removeClass('btn-selected');
+              $('#btn11').removeClass('btn-selected');
+              $('#btn12').removeClass('btn-selected');
+              $('#btn13').removeClass('btn-selected');
+              $('#btn10').addClass('btn-selected');
+              break;
+            case "30-40":
+              $('#btn9').removeClass('btn-selected');
+              $('#btn10').removeClass('btn-selected');
+              $('#btn11').removeClass('btn-selected');
+              $('#btn12').removeClass('btn-selected');
+              $('#btn13').removeClass('btn-selected');
+              $('#btn11').addClass('btn-selected');
+              break;
+            case "40-50":
+              $('#btn9').removeClass('btn-selected');
+              $('#btn10').removeClass('btn-selected');
+              $('#btn11').removeClass('btn-selected');
+              $('#btn12').removeClass('btn-selected');
+              $('#btn13').removeClass('btn-selected');
+              $('#btn12').addClass('btn-selected');
+              break;
+            case "50+":
+              $('#btn9').removeClass('btn-selected');
+              $('#btn10').removeClass('btn-selected');
+              $('#btn11').removeClass('btn-selected');
+              $('#btn12').removeClass('btn-selected');
+              $('#btn13').removeClass('btn-selected');
+              $('#btn13').addClass('btn-selected');
+              break;
+          }
           hoursperweek_data = value;
         }
       })
@@ -293,6 +380,8 @@
           }
         });
         
+      } else {
+        alert('Please fill out all fields');
       }
       
     }
