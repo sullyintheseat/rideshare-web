@@ -120,7 +120,8 @@
             
             <p>Please fill out the following information</p>
 
-            <input type=text placeholder="Name" id="txtname" /><br />
+            <input type=text placeholder="First Name" id="txtFirstName" /><br />
+            <input type=text placeholder="Last Name" id="txtLastName" /><br />
             <input type=text placeholder="Email" id="txtemail" /><br />
             
             <br />
@@ -193,7 +194,8 @@
         service_data = undefined, 
         frequented_data = undefined,
         hoursperweek_data = undefined,
-        name = undefined,
+        firstName = undefined,
+        lastName =undefined,
         email = undefined,
         isUber = false,
         isLyft = false,
@@ -326,7 +328,9 @@
     submitForm = () => {
       let valid = true;
       let data = {};
-      name = $("#txtname").val();
+      //name = $("#txtname").val();
+      firstName = $("#txtFirstName").val();
+      lastName = $("#txtLastName").val();
       email = $("#txtemail").val();
      
      
@@ -334,7 +338,8 @@
           driver_data === undefined || 
           frequented_data === undefined || 
           hoursperweek_data === undefined ||
-          name === undefined ||
+          firstName === undefined ||
+          lastName === undefined ||
           email === undefined){
           valid = false;
       }
@@ -346,7 +351,8 @@
       console.log(valid + ' ' +  validmail);
 
       if(valid && validmail){
-        data.name = name;
+        data.firstName = firstName;
+        data.lastName = lastName;
         data.email = email;
         data.inDfw = driver_data;
         data.isUber = isUber;
