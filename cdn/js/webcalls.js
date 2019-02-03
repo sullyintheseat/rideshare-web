@@ -40,9 +40,6 @@ function postData(mdata, purl, callback) {
         url: purl,
         type: 'POST',
         data: JSON.stringify(mdata),
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        processData: false,
         context: this,
         success: function(data) {
             console.log(data)
